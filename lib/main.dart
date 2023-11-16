@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:project_management_/firebase_options.dart';
-import 'package:project_management_/Pages/LoadingScreen.dart';
+import 'package:project_management_/Pages/Signup.dart';
 
 Future <void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // theme:ThemeData(
+      //   backgroundColor: Colors.teal,
+      // ),
       title: 'Home',
+
       debugShowCheckedModeBanner: false,
       routes:{
         '/':(context)=> LoadingPage(),
