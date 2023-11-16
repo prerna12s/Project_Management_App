@@ -1,11 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:project_management_/Pages/splash.dart';
 import 'package:project_management_/firebase_options.dart';
-import 'package:project_management_/Pages/LoadingScreen.dart';
+import 'package:get/get.dart';
+
 
 Future <void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+      await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform
+      );
 
   runApp(const MyApp());
 }
@@ -16,11 +20,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Home',
       debugShowCheckedModeBanner: false,
-      routes:{
-        '/':(context)=> LoadingPage(),
-      } ,
+      home : splashScreen(),
+
     );
   }}
