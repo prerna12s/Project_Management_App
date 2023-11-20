@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:project_management_/widgets/WriteBox.dart';
+
+import '../widgets/Line.dart';
 class AddTask extends StatefulWidget {
   const AddTask({super.key});
 
@@ -9,41 +13,64 @@ class AddTask extends StatefulWidget {
 class _AddTaskState extends State<AddTask> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text("Add Project "),
-       Line(),
-        Text("Project Name ",style:TextStyle(
-          fontSize:30,
-        )),
-        Container(
-          child: TextFormField(
-             minLines: 1,
-              maxLines: 4,
-           decoration: InputDecoration(
-          hintText: 'Project name'
-          ),
-    ),),
-      ],
-    );
-  }
-}
-class Line extends StatefulWidget {
-  const Line({super.key});
+    return Scaffold(
+      backgroundColor: Color(0xFF001C30),
 
-  @override
-  State<Line> createState() => _LineState();
-}
+       body: SingleChildScrollView(
+         child: Padding(
+           padding: const EdgeInsets.only(top:70,left:10),
+           child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
 
-class _LineState extends State<Line> {
-  @override
-  Widget build(BuildContext context) {
-    return  Container(
-      height: 1,
-      width:50,
-      decoration: BoxDecoration(
-        color: Color(0xFF176B87),
-      ),
+                Text("Add Task ",style:GoogleFonts.poppins(
+                  color: Color(0xFFDAFFFB),
+                  fontSize:20,
+                ),),
+                Line(),
+                SizedBox(
+                  height:30
+                ),
+                Text("Task Name ",style:GoogleFonts.poppins(
+                  color: Color(0xFFDAFFFB),
+                  fontSize:18,
+                ),),
+               WriteBox(Text: 'Task Name'),
+                Line(width: 1,padding: 10),
+                Text("Members ",style:GoogleFonts.poppins(
+                  color: Color(0xFFDAFFFB),
+                  fontSize:18,
+                ),),
+                WriteBox(Text:'Emails separated by,'),
+                Line(width: 1,padding: 10),
+                Text("Item name ",style:GoogleFonts.poppins(
+                  color: Color(0xFFDAFFFB),
+                  fontSize:18,
+                ),),
+                WriteBox(Text:'Initial Item Name,',),
+                Line(width: 1,padding: 10),
+
+                WriteBox(Text:'Description,'),
+                Line(width: 1,padding: 10),
+               Padding(
+                 padding: EdgeInsets.only(left:MediaQuery.of(context).size.width/1.3,top:20),
+                 child: ElevatedButton(onPressed: (){},
+                   style: ElevatedButton.styleFrom(
+                     backgroundColor: Color(0xFF176B87),
+                   ),
+                   child: Text(
+                   'Add',style:GoogleFonts.poppins(
+                   color: Color(0xFFDAFFFB),
+                   fontSize:18,
+                 ),
+                 ),),
+               )
+
+              ],
+            ),
+         ),
+       ),
     );
+
   }
 }
