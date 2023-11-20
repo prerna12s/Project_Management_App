@@ -15,7 +15,7 @@ class splashScreen extends StatefulWidget {
 class _splashScreenState extends State<splashScreen> {
 
   changeScreen(){
-    Future.delayed(Duration(seconds: 4),(){
+    Future.delayed(Duration(seconds: 3),(){
       Get.to(() => SignUp());
 
     });
@@ -76,7 +76,7 @@ class _splashScreenState extends State<splashScreen> {
               effects: [SlideEffect(duration: 1200.ms,delay: 120.ms) ],
               child: Text('Project Management App',
                   style: TextStyle(
-                    color: Colors.white24,
+                    color: Color(0xffDAFFFB),
                     fontWeight: FontWeight.bold,
                     fontSize: 28,
                   ),
@@ -90,7 +90,7 @@ class _splashScreenState extends State<splashScreen> {
                 style: TextStyle(
                   fontSize: 21,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white70,
+                  color: Color(0xff176B87),
                 ),),
               ],
             ),
@@ -100,8 +100,8 @@ class _splashScreenState extends State<splashScreen> {
                 width: 340,
                 height: 10,
                 direction: Axis.horizontal,
-                backgroundColor: Colors.grey.shade800,
-                foregrondColor: Colors.blueAccent,
+                backgroundColor: Color(0xff176B87),
+                foregrondColor: Colors.white,
                 duration: Duration( seconds: 3),
                 curve: Curves.easeInOut,
                 borderRadius: BorderRadius.circular(10),

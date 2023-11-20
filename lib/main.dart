@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Home',
       debugShowCheckedModeBanner: false,
-      home :bottomNavBar(),
+      home :splashScreen(),
 
     );
   }}

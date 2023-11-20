@@ -40,6 +40,7 @@ dependencies:
   firebase_auth: ^4.13.0
   get: ^4.6.6
   simple_animation_progress_bar: ^1.6.0
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:

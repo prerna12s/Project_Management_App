@@ -64,6 +64,12 @@ class _homeState extends State<home> {
             child: Image(image: AssetImage('assets/null_image.png'),
             ),
           ),
+          SizedBox(height: 20 ),
+          Text('Looks like you have no files currently',
+          style: TextStyle(
+            fontSize: 18,
+            color: Color(0xff176B87),
+          ),)
 
 
 

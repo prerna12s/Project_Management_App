@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_management_/Pages/home.dart';
 import 'package:project_management_/Pages/step1.dart';
+import 'package:project_management_/screens/bottom_nav_bar.dart';
 
 
 class SignUp extends StatefulWidget {
@@ -89,7 +91,7 @@ class _SignUpState extends State<SignUp> {
                             shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(30)),
                           ),onPressed: () {
                           Navigator.push(context, MaterialPageRoute(
-                              builder: (context) =>step1() ) );
+                              builder: (context) =>bottomNavBar() ) );
                           },
 
                           child: Text('Log In',style:TextStyle(
@@ -161,30 +163,32 @@ class _SignUpState extends State<SignUp> {
                                     child: Container(
                                       padding: EdgeInsets.only(top: 10,left: 15,right: 15),
                                       decoration: BoxDecoration(
-                                      color : Color(0x4DDAFFFB),
+                                      color : Color(0xffDAFFFB),
                                       borderRadius: BorderRadius.circular(50),
                                       ),
                                        child: Row(
-                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.only( bottom: 11),
+                                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                           Container(
+                                             padding: EdgeInsets.only( bottom: 11),
 
-                                            child: Image.network(
+                                             child: Image.network(
                                             'http://pngimg.com/uploads/google/google_PNG19635.png',
                                           ),
                                         ),
 
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 11.0),
-                                          child: InkWell(
-                                            onTap: () {
-                                              Navigator.push(context, MaterialPageRoute(
-                                                  builder: (context) => step1()) );
+                                           Padding(
+                                             padding: const EdgeInsets.only(bottom: 11.0),
+                                              child: InkWell(
+                                                 onTap: () {
+                                                 Navigator.push(context, MaterialPageRoute(
+                                                  builder: (context) => bottomNavBar()) );
                                             },
-                                            child:   Text('Sign-up with Google',style: TextStyle(
-                                                           color: Color(0xffDAFFFB),
-                                                           fontSize: 22)
+                                                  child:   Text('Sign-up with Google',style: TextStyle(
+                                                           color: Color(0xff176B87),
+                                                           fontSize: 22,
+                                                  fontWeight: FontWeight.bold
+                                                  )
                                                       ),
                                           ),
                                         ),
@@ -195,7 +199,7 @@ class _SignUpState extends State<SignUp> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 50),
+                          SizedBox(height: 35),
                           Container(
                               child: Center(
                                   child: Column(
@@ -208,14 +212,26 @@ class _SignUpState extends State<SignUp> {
                                           child:Text("Need help? Contact us",
                                             style: TextStyle(
                                               color:Color(0xffDAFFFB),
-                                              fontSize: 13
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.bold
+
                                             ),
                                           )
                                       )
                                     ],
                                   )
                               )
-                          )]))]),
+                          ),
+                          SizedBox(height: 15),
+                          Center(
+                            child: Text('Project Management App',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff176B87)
+                            ),),
+                          )
+                        ]))]),
         ));
 
   }
