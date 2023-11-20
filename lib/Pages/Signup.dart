@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:project_management_/Pages/auth.dart';
+import 'package:project_management_/Pages/settings.dart';
 import 'package:project_management_/Pages/step1.dart';
-
+import "settings.dart";
+import 'package:project_management_/step2.dart';
 class LoadingPage extends StatefulWidget {
 
  LoadingPage({super.key});
@@ -94,7 +96,7 @@ class _LoadingPageState extends State<LoadingPage> {
               shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(30)),
             ),onPressed: () {
             Navigator.push(context, MaterialPageRoute(
-                builder: (context) =>Step1() ) );
+                builder: (context) =>Step2() ) );
           }, child: Text('Log In',style:TextStyle(
             //
                 color:Color(0xff176B87),
@@ -189,7 +191,7 @@ crossAxisAlignment: CrossAxisAlignment.start,
                          InkWell(
                            onTap: () {
                              Navigator.push(context, MaterialPageRoute(
-                                 builder: (context) =>Step1() ) );
+                                 builder: (context) =>setting() ) );
                            },
                            child:   Text('Sign-up with Google',style: TextStyle(color: Color(0xffDAFFFB),fontSize: 22)),
                          ),
@@ -204,6 +206,7 @@ crossAxisAlignment: CrossAxisAlignment.start,
                 Container(
                     child: Center(
                         child: Column(
+
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -213,7 +216,7 @@ crossAxisAlignment: CrossAxisAlignment.start,
                            child:Text("Need help? Contact us",style: TextStyle(color:Color(0xffDAFFFB) ,fontSize: 13,) ,
 
                     ))],
-                    )
+                    ) ,
 
                 )
                 )]))])));
