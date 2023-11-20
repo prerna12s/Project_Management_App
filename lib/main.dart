@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:project_management_/Pages/error.dart';
 import 'package:project_management_/Pages/splash.dart';
 import 'package:project_management_/firebase_options.dart';
 import 'package:get/get.dart';
+import 'package:project_management_/screens/bottom_nav_bar.dart';
 
 
 Future <void> main() async{
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Home',
       debugShowCheckedModeBanner: false,
-      home : splashScreen(),
+      home :bottomNavBar(),
 
     );
   }}
