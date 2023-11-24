@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:project_management_/Pages/SignUp.dart';
-import 'package:project_management_/Pages/error.dart';
 import 'package:project_management_/Pages/home.dart';
 import 'package:project_management_/Pages/settings.dart';
 import 'package:project_management_/Pages/worklist.dart';
 
 import '../Pages/notifications.dart';
+
+
 
 class bottomNavBar extends StatefulWidget {
   const bottomNavBar({super.key});

@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TaskIndicator extends StatefulWidget {
   final String task;
-  const TaskIndicator({super.key,required this.task});
+  final int color;
+  const TaskIndicator({super.key,required this.task, required this.color});
+
 
   @override
   State<TaskIndicator> createState() => _TaskIndicatorState();
@@ -23,7 +25,7 @@ class _TaskIndicatorState extends State<TaskIndicator> {
           children: [
             Container(
               width: 20,
-              color: Colors.green,
+              color: Color(widget.color),
             ),
             Padding(
               padding: const EdgeInsets.only(top:10,left:30),

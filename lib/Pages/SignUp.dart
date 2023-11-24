@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_management_/Pages/home.dart';
-import 'package:project_management_/Pages/step1.dart';
+import 'package:project_management_/Pages/error.dart';
+import 'package:project_management_/Pages/phone_auth1.dart';
 import 'package:project_management_/screens/bottom_nav_bar.dart';
 
 
@@ -182,7 +182,7 @@ class _SignUpState extends State<SignUp> {
                                               child: InkWell(
                                                  onTap: () {
                                                  Navigator.push(context, MaterialPageRoute(
-                                                  builder: (context) => bottomNavBar()) );
+                                                  builder: (context) => phoneAuth()) );
                                             },
                                                   child:   Text('Sign-up with Google',style: TextStyle(
                                                            color: Color(0xff176B87),
@@ -208,7 +208,9 @@ class _SignUpState extends State<SignUp> {
                                     children: [
                                       Padding(padding: EdgeInsets.only(top: 38)),
                                       InkWell(
-                                          onTap: (){},
+                                          onTap: (){
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=> errorPage()));
+                                          },
                                           child:Text("Need help? Contact us",
                                             style: TextStyle(
                                               color:Color(0xffDAFFFB),

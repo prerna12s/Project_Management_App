@@ -94,7 +94,9 @@ class _errorPageState extends State<errorPage> {
           ),
           SizedBox(height: 20),
           InkWell(
-              onTap: (){},
+              onTap: (){
+
+              },
               child:Text("Need help? Contact us",
                 style: TextStyle(
                     color:Color(0xffDAFFFB),

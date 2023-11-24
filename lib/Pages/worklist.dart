@@ -78,13 +78,13 @@ class _WorklistState extends State<Worklist> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    AboutTask(count: '1',text: 'Pending',),
+                    AboutTask(count: '1',text: 'Pending'),
                     SizedBox(width:10),
-                    AboutTask(count: '2',text: 'Today',),
+                    AboutTask(count: '2',text: 'Today'),
                     SizedBox(width:10),
-                    AboutTask(count: '2',text: 'This Week',),
+                    AboutTask(count: '2',text: 'This Week'),
                     SizedBox(width:10),
-                    AboutTask(count: '0',text: 'last',),
+                    AboutTask(count: '0',text: 'last'),
                   ],
                 ),
               ),
@@ -94,15 +94,15 @@ class _WorklistState extends State<Worklist> {
               SingleChildScrollView(
                 child: Column(
                   children: [
-                    TaskIndicator(task:'Task 1' ),
+                    TaskIndicator(task:'Task 1', color: 0xFFEA4335),
                     SizedBox(
                       height: 8,
                     ),
-                    TaskIndicator(task:'Task 2' ),
+                    TaskIndicator(task:'Task 2', color: 0xFF34A853),
                     SizedBox(
                       height: 8,
                     ),
-                    TaskIndicator(task:'Task 3' ),
+                    TaskIndicator(task:'Task 3', color: 0xFFFBBC05),
                   ],
                 ),
               )

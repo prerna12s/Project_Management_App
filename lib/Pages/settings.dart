@@ -43,7 +43,7 @@ class settingState extends State<setting> {
             Row(
               children: [
                 SizedBox(width: 22,),
-                Text("Settings",style: GoogleFonts.poppins(color: Color(0xffDAFFFB),fontSize: 43,fontWeight: FontWeight.w500),)
+                Text("Settings",style: GoogleFonts.poppins(color: Color(0xffDAFFFB),fontSize: 34,fontWeight: FontWeight.w500),)
               ],
             ),
             SizedBox(height: 15),
@@ -71,7 +71,7 @@ class settingState extends State<setting> {
                         child:   Icon(Icons.woman,color: Colors.black,size: 40,),
                       ),
                       SizedBox(width: 7,),
-                      Text("My Team",style: GoogleFonts.poppins(color: Color(0xffDAFFFB),fontWeight: FontWeight.w400,fontSize: 30),
+                      Text("My Team",style: GoogleFonts.poppins(color: Color(0xffDAFFFB),fontWeight: FontWeight.w400,fontSize: 22),
 
                       ),
                       // SizedBox(width: 50,),
