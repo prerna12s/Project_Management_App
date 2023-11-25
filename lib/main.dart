@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:project_management_/Pages/Addtask.dart';
+import 'package:project_management_/Pages/Step%202.dart';
 import 'package:project_management_/firebase_options.dart';
 import 'package:project_management_/Pages/LoadingScreen.dart';
 import 'package:project_management_/Pages/Worklist.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Home',
       debugShowCheckedModeBanner: false,
       routes:{
-        '/':(context)=> AddTask(),
+        '/':(context)=> Step_2(),
       } ,
     );
   }}
