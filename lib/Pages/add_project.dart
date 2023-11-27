@@ -17,16 +17,25 @@ class _AddProjectState extends State<AddProject> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.fill, image: AssetImage("assets/bg app oss.png"))),
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding:  EdgeInsets.only(left: 25, right: 25),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                IconButton(onPressed:(){Navigator.pop(context);}, icon: Icon(Icons.arrow_back,color: Colors.white,)),
+                SizedBox(height: 40),
+                IconButton(
+                    onPressed:(){
+                      Navigator.pop(context);
+                      },
+                    icon: Icon(Icons.arrow_back,
+                      color: Colors.white
+                    )
+                ),
+                SizedBox(height: 20),
                 const Text(
                   'Add Project',
                   style: TextStyle(
@@ -38,7 +47,7 @@ class _AddProjectState extends State<AddProject> {
                   ),
                 ),
                 const SizedBox(
-                  height: 3,
+                  height: 6,
                 ),
                 Container(
                   width: 157,
@@ -53,7 +62,7 @@ class _AddProjectState extends State<AddProject> {
                   ),
                 ),
                 const SizedBox(
-                  height: 28,
+                  height: 40,
                 ),
                 const Text(
                   'Project name',
@@ -62,12 +71,13 @@ class _AddProjectState extends State<AddProject> {
                     fontSize: 20,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w300,
-                    height: 0,
+
                   ),
                 ),
-                // SizedBox(
-                //   height: 5,
-                // ),
+                SizedBox(
+                  height: 5,
+                ),
+
                 Container(
                   height: 65,
                   child: MyContainerField(
@@ -89,7 +99,7 @@ class _AddProjectState extends State<AddProject> {
                   ),
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 20,
                 ),
                 const Text(
                   'Members',
@@ -102,13 +112,17 @@ class _AddProjectState extends State<AddProject> {
                   ),
                 ),
                 SizedBox(
+                  height: 6,
+                ),
+                SizedBox(
                   height: 75,
                   child: MyContainerField(
                       controller: SearchController,
-                      hintText: "Emails seperated by,"),
+                      hintText: "Emails "),
                 ),
-                const SizedBox(
-                  height: 12,
+
+                SizedBox(
+                  height: 6,
                 ),
                 Container(
                   width: 410,
@@ -123,7 +137,7 @@ class _AddProjectState extends State<AddProject> {
                   ),
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 18,
                 ),
                 const Text(
                   'Item name',
@@ -134,6 +148,9 @@ class _AddProjectState extends State<AddProject> {
                     fontWeight: FontWeight.w300,
                     height: 0,
                   ),
+                ),
+                SizedBox(
+                  height: 6,
                 ),
                 SizedBox(
                   height: 70,
@@ -155,46 +172,45 @@ class _AddProjectState extends State<AddProject> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 50,
-                  child: MyContainerField(
-                      controller: SearchController, hintText: "Description"),
-                ),
+
                 SizedBox(
                   height: 35,
                 ),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      width: 270,
-                    ),
-                    Container(
-                      width: 102,
-                      height: 38,
-                      // decoration: BoxDecoration(
 
-                      // ),
-                      color: Color(0xFF176B87),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 23, vertical: 3),
-                        child: const Text(
-                          'Add',
-                          // textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xFFDAFFFB),
-                            fontSize: 26,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                            height: 0,
+                  Row(
+
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                       width: 240,
+                      ),
+                      Container(
+                        width: 102,
+                        height: 38,
+                        // decoration: BoxDecoration(
+
+                        // ),
+                        color: Color(0xFF176B87),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 23, vertical: 3),
+                          child: const Text(
+                            'Add',
+                            // textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Color(0xFFDAFFFB),
+                              fontSize: 26,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              height: 0,
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                  ],
-                )
+                      )
+                    ],
+                  ),
+
               ],
             ),
           ),

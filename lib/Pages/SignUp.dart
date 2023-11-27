@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:project_management_/Pages/error.dart';
+import 'package:project_management_/Pages/login_page.dart';
 import 'package:project_management_/Pages/phone_auth1.dart';
 import 'package:project_management_/screens/bottom_nav_bar.dart';
 
@@ -12,6 +14,36 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  void login (String email, password) async{
+    try{
+      Response response =  await post(
+        Uri.parse('https://reqres.in/api/register'),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+          body: {
+
+          'email' : email ,
+          'password' : password
+        }
+      );
+         if (response.statusCode ==200){
+             print('account created successfully');
+             Navigator.push(context, MaterialPageRoute(builder: (context)=> bottomNavBar()));
+         }
+         else {
+           print('failed.  Error: ${response.body}');
+           print('Response status code: ${response.statusCode}');
+
+         }
+
+          }
+        catch(e){
+      print(e.toString());
+        }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,13 +57,11 @@ class _SignUpState extends State<SignUp> {
               crossAxisAlignment: CrossAxisAlignment.start,
 
               children: [
-                SizedBox(height: 100),
-
-                //Padding(padding:   EdgeInsets.only(top:120,right: 20,left: 15),),
-                Row(
+                SizedBox(height: 50),
+                  Row(
                   children: [
                     SizedBox(width: 20),
-                    Text("Sign-in",style:TextStyle(
+                    Text("Sign-Up",style:TextStyle(
                       color: Color(0xffDAFFFB),fontWeight: FontWeight.bold,fontSize: 50)),
                   ],
                 ),
@@ -40,14 +70,13 @@ class _SignUpState extends State<SignUp> {
                     Padding(
                       padding:  EdgeInsets.only(top:20,right:15,left:15),
                       child: TextFormField(
-
-                        decoration: InputDecoration(
+                        controller: emailController,
+                          decoration: InputDecoration(
                             fillColor: Color(0x4DDAFFFB),
                             filled:true,
-                            hintText: 'Username',
+                            hintText: 'Email',
                             hintStyle: TextStyle(color: Color(0xffDAFFFB)),
                             border:OutlineInputBorder(
-
                                 borderRadius: BorderRadius.circular(35)
                             )
                         ),
@@ -57,9 +86,8 @@ class _SignUpState extends State<SignUp> {
                     Padding(
 
                       padding: const EdgeInsets.only(top:20,left:15,right: 15),
-                      child:
-                      TextFormField(
-
+                         child: TextFormField(
+                        controller: passwordController,
                         decoration: InputDecoration(
                             fillColor: Color(0x4DDAFFFB),
                             filled: true,
@@ -67,6 +95,7 @@ class _SignUpState extends State<SignUp> {
                             hintStyle: TextStyle(color: Color(0xffDAFFFB)
                       ),
                          border:OutlineInputBorder(
+
                             borderRadius: BorderRadius.circular(35)
                          )
                         ),
@@ -75,8 +104,6 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ],
                 ),
-
-
                   Padding(
                     padding: const EdgeInsets.only(top:20,left:15,right: 15),
                     child: Container(
@@ -89,12 +116,14 @@ class _SignUpState extends State<SignUp> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(backgroundColor: Color(0xffDAFFFB),
                             shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(30)),
-                          ),onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(
-                              builder: (context) =>bottomNavBar() ) );
+                          ),
+
+                          onPressed: () {
+                            login(emailController.text, passwordController.text);
+
                           },
 
-                          child: Text('Log In',style:TextStyle(
+                             child: Text('Sign Up',style:TextStyle(
                             color:Color(0xff176B87),
                             fontSize: 24,
                             fontWeight:FontWeight.bold,
@@ -105,13 +134,39 @@ class _SignUpState extends State<SignUp> {
                   ),
 
                 Container(
+                    child: Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(padding: EdgeInsets.only(top: 38)),
+                            InkWell(
+                                onTap: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> loginPage()));
+                                },
+                                child:Text("Already a user? Login",
+                                  style: TextStyle(
+                                      color:Color(0xffDAFFFB),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold
+
+                                  ),
+                                )
+                            )
+                          ],
+                        )
+                    )
+                ),
+
+
+                Container(
                     child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+
                         children: [
                           Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(height: 120),
+                                SizedBox(height: 100),
                            // Padding(padding: EdgeInsets.only(top: 120)),
                             Expanded(
                               child: Container(
