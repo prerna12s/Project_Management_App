@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_management_/Pages/Addtask.dart';
 
 import '../screens/taskIndicator.dart';
 
@@ -18,7 +19,8 @@ class _WorklistState extends State<Worklist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){},
+      floatingActionButton: FloatingActionButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>AddTask()));
+      },
         backgroundColor: Color(0xffDAFFFB),
         tooltip: 'Add Task',
         splashColor: CupertinoColors.black,

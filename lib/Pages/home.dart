@@ -2,6 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_management_/Pages/Addtask.dart';
+import 'package:project_management_/Pages/add_project.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -14,8 +16,9 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){
 
+      floatingActionButton: FloatingActionButton(onPressed: (){
+           Navigator.push(context, MaterialPageRoute(builder: (context)=>AddProject()));
       },
         backgroundColor: Color(0xffDAFFFB),
         tooltip: 'Add Task',
@@ -28,7 +31,8 @@ class _homeState extends State<home> {
       backgroundColor: Color(0xFF001C30),
       body: Column(
         children: [
-          SizedBox(height: 50),
+      SizedBox(
+        height: 50),
           Row(
 
             children: [
