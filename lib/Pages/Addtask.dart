@@ -24,7 +24,7 @@ class _AddTaskState extends State<AddTask> {
 
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top:40,left:10),
+          padding: const EdgeInsets.only(top:40,left:20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,17 +33,18 @@ class _AddTaskState extends State<AddTask> {
                 color: Color(0xFFDAFFFB),
                 fontSize:20,
               ),),
-              Line(),
+              Line(width: 0.5,
+              ),
               SizedBox(
-                  height:30
+                  height:40
               ),
               Text("Task Name ",style:GoogleFonts.poppins(
                 color: Color(0xFFDAFFFB),
                 fontSize:18,
               ),),
               WriteBox(Text: 'Task Name',controller:taskcontroller ,),
-              Line(width: 1,padding: 15),
-              SizedBox(height:5),
+              Line(width: 1,padding: 10),
+              SizedBox(height:15),
               Text("Members ",style:GoogleFonts.poppins(
                 color: Color(0xFFDAFFFB),
                 fontSize:18,
@@ -52,7 +53,7 @@ class _AddTaskState extends State<AddTask> {
               WriteBox(Text:'Description,',controller: Descriptcontroller,maxlines:10,minlines:5),
               Line(width: 1,padding: 10),
               Padding(
-                padding: EdgeInsets.only(left:MediaQuery.of(context).size.width/1.3,top:20),
+                padding: EdgeInsets.only(left:MediaQuery.of(context).size.width/1.4,top:20),
                 child: ElevatedButton(onPressed: (){
                   submitdata();
                 },
