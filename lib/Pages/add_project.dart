@@ -155,7 +155,7 @@ class _AddProjectState extends State<AddProject> {
                 SizedBox(
                   height: 70,
                   child: MyContainerField(
-                      controller: SearchController, hintText: "Inital item name"),
+                      controller: SearchController, hintText: "Initial item name"),
                 ),
                 const SizedBox(
                   height: 12,
@@ -183,7 +183,7 @@ class _AddProjectState extends State<AddProject> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const SizedBox(
-                       width: 240,
+                       width: 235,
                       ),
                       Container(
                         width: 102,
@@ -192,22 +192,23 @@ class _AddProjectState extends State<AddProject> {
 
                         // ),
                         color: Color(0xFF176B87),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 23, vertical: 3),
-                          child: const Text(
-                            'Add',
-                            // textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Color(0xFFDAFFFB),
-                              fontSize: 26,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              height: 0,
+
+
+                          child: Center(
+                            child: Text(
+                              'Add',
+                              // textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color(0xFFDAFFFB),
+                                fontSize: 26,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                                height: 0,
+                              ),
                             ),
                           ),
                         ),
-                      )
+
                     ],
                   ),
 

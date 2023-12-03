@@ -35,157 +35,163 @@ class _InboxState extends State<Inbox> {
               fit: BoxFit.fill,
               image: AssetImage("assets/bg app oss.png"),
             )),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 50,
-              ),
-              const Text(
-                "Inbox",
-                style: TextStyle(
-                    fontFamily: "Poppins",
-                    color: Color(0xFFDAFFFB),
-                    fontSize: 28,
-                    fontWeight: FontWeight.w500),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              MyTextField(
-                  controller: SearchController,
-                  hintText: 'Search',
-                  obscureText: false),
-              const SizedBox(
-                height: 16,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(
-                          top: 10, bottom: 10, left: 10, right: 10),
-                      width: 89,
-                      height: 36,
-                      decoration: ShapeDecoration(
-                        color: const Color(0xFF176B87),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const Text(
+                    "Inbox",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        color: Color(0xFFDAFFFB),
+                        fontSize: 28,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  MyTextField(
+                      controller: SearchController,
+                      hintText: 'Search',
+                      obscureText: false),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(
+                              top: 10, bottom: 10, left: 10, right: 10),
+                          width: 89,
+                          height: 36,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFF176B87),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Text(
+                            'All',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              height: 0,
+                            ),
+                          ),
                         ),
-                      ),
-                      child: const Text(
-                        'All',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                          height: 0,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 16),
+                        SizedBox(width: 16),
 
-                    Container(
-                      padding: const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-                      width: 89,
-                      height: 36,
-                      decoration: ShapeDecoration(
-                        color: const Color(0xFF176B87),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                        Container(
+                          padding: const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
+                          width: 89,
+                          height: 36,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFF176B87),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Text('Unread',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              height: 0,
+                            ),
+                          ),
                         ),
-                      ),
-                      child: const Text('Unread',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                          height: 0,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 16),
+                        SizedBox(width: 16),
 
-                    Container(
-                      padding: const EdgeInsets.only(
-                          top: 10, bottom: 10, left: 10, right: 10),
-                      width: 89,
-                      height: 36,
-                      decoration: ShapeDecoration(
-                        color: const Color(0xFF176B87),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                        Container(
+                          padding: const EdgeInsets.only(
+                              top: 10, bottom: 10, left: 10, right: 10),
+                          width: 89,
+                          height: 36,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFF176B87),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Text(
+                            'Mentions',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              height: 0,
+                            ),
+                          ),
                         ),
-                      ),
-                      child: const Text(
-                        'Mentions',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                          height: 0,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 16),
+                        SizedBox(width: 16),
 
-                    Container(
-                      padding: const EdgeInsets.only(
-                          top: 10, bottom: 10, left: 10, right: 10),
-                      width: 89,
-                      height: 36,
-                      decoration: ShapeDecoration(
-                        color: const Color(0xFF176B87),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                        Container(
+                          padding: const EdgeInsets.only(
+                              top: 10, bottom: 10, left: 10, right: 10),
+                          width: 89,
+                          height: 36,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFF176B87),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Text(
+                            'Assigned',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              height: 0,
+                            ),
+                          ),
                         ),
-                      ),
-                      child: const Text(
-                        'Assigned',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                          height: 0,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 16),
+                        SizedBox(width: 16),
 
-                                    ],
-                ),
+                                        ],
+                    ),
+                  ),
+                  SizedBox(height: 100 ),
+                  Center(
+                    child: Container(
+                      height: 120,
+                      width: 120,
+                      child: Image(image: AssetImage('assets/notify.png')),
+                    ),
+
+
+                  ),
+                  SizedBox(height: 20),
+                  Center(
+                    child: Text('Looks like you have no notifications !!',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Color(0xff176B87)
+                      ) ,),
+                  ),
+                  SizedBox(height: 20),
+                ],
               ),
-              SizedBox(height: 100 ),
-              Center(
-                child: Container(
-                  height: 120,
-                  width: 120,
-                  child: Image(image: AssetImage('assets/notify.png')),
-                ),
-                
-                
-              ),
-              SizedBox(height: 20),
-              Center(
-                child: Text('Looks like you have no notifications !!',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Color(0xff176B87)
-                  ) ,),
-              )
-            ],
+            ),
           ),
         ),
       ),
