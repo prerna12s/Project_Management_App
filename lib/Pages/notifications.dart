@@ -25,6 +25,7 @@ class _InboxState extends State<Inbox> {
           size: 35,
         ),
       ),
+
       backgroundColor: const Color(0xFF001C30),
       body: Container(
         height: double.infinity,
@@ -40,14 +41,14 @@ class _InboxState extends State<Inbox> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 100,
+                height: 50,
               ),
               const Text(
                 "Inbox",
                 style: TextStyle(
                     fontFamily: "Poppins",
                     color: Color(0xFFDAFFFB),
-                    fontSize: 24,
+                    fontSize: 28,
                     fontWeight: FontWeight.w500),
               ),
               const SizedBox(
@@ -58,120 +59,114 @@ class _InboxState extends State<Inbox> {
                   hintText: 'Search',
                   obscureText: false),
               const SizedBox(
-                height: 10,
+                height: 16,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(
-                        top: 10, bottom: 10, left: 10, right: 10),
-                    width: 40,
-                    height: 36,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFF176B87),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(
+                          top: 10, bottom: 10, left: 10, right: 10),
+                      width: 89,
+                      height: 36,
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFF176B87),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        'All',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
                       ),
                     ),
-                    child: const Text(
-                      'All',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        height: 0,
+                    SizedBox(width: 16),
+
+                    Container(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
+                      width: 89,
+                      height: 36,
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFF176B87),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text('Unread',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(
-                        top: 10, bottom: 10, left: 10, right: 10),
-                    width: 75,
-                    height: 36,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFF176B87),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    SizedBox(width: 16),
+
+                    Container(
+                      padding: const EdgeInsets.only(
+                          top: 10, bottom: 10, left: 10, right: 10),
+                      width: 89,
+                      height: 36,
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFF176B87),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        'Mentions',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
                       ),
                     ),
-                    child: const Text(
-                      'Unread',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        height: 0,
+                    SizedBox(width: 16),
+
+                    Container(
+                      padding: const EdgeInsets.only(
+                          top: 10, bottom: 10, left: 10, right: 10),
+                      width: 89,
+                      height: 36,
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFF176B87),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        'Assigned',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w500,
+                          height: 0,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(
-                        top: 10, bottom: 10, left: 10, right: 10),
-                    width: 87,
-                    height: 36,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFF176B87),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: const Text(
-                      'Mentions',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        height: 0,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(
-                        top: 10, bottom: 10, left: 10, right: 10),
-                    width: 89,
-                    height: 36,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFF176B87),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: const Text(
-                      'Assigned',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                        height: 0,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  
-                  
-                ],
+                    SizedBox(width: 16),
+
+                                    ],
+                ),
               ),
-              SizedBox(height: 90 ),
+              SizedBox(height: 100 ),
               Center(
                 child: Container(
                   height: 120,

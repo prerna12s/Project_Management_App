@@ -1,11 +1,11 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:project_management_/Pages/SignUp.dart';
 import 'package:project_management_/Pages/error.dart';
-import 'package:project_management_/Pages/phone_auth1.dart';
-import 'package:project_management_/screens/bottom_nav_bar.dart';
+import 'package:project_management_/modals/login_controller.dart';
+
+
 
 class loginPage extends StatefulWidget {
   const loginPage({super.key});
@@ -16,34 +16,14 @@ class loginPage extends StatefulWidget {
 
 class _loginPageState extends State<loginPage> {
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  loginController controller = Get.put(loginController());
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 
 
-  Future<void> login(String email, String password) async {
-    try {
-      final response = await http.post(
-        Uri.parse('https://reqres.in/api/register'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({
-          'email': email,
-          'password': password,
-        }),
-      );
-
-      print('Response status code: ${response.statusCode}');
-      print('Response body: ${response.body}');
-
-      if (response.statusCode == 200) {
-        print('Account created successfully');
-        Navigator.push(context, MaterialPageRoute(builder: (context) => bottomNavBar()));
-      } else {
-        print('Failed to create account. Error: ${response.body}');
-      }
-    } catch (e) {
-      print(e.toString());
-    }
+  @override
+    void initState(){
+    super.initState();
   }
 
 
@@ -54,150 +34,175 @@ class _loginPageState extends State<loginPage> {
 
 
         body: SingleChildScrollView(
-          child: Column(
+          child: Form(
+            key: _formKey,
+            child: Column(
 
 
-              crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
 
-              children: [
-                SizedBox(height: 50),
-                Row(
-                  children: [
-                    SizedBox(width: 20),
-                    Text("Log In",style:TextStyle(
-                        color: Color(0xffDAFFFB),fontWeight: FontWeight.bold,fontSize: 50)),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding:  EdgeInsets.only(top:20,right:15,left:15),
-                      child: TextFormField(
-                        controller: emailController,
-                               decoration: InputDecoration(
-                            fillColor: Color(0x4DDAFFFB),
-                            filled:true,
-                            hintText: 'Email',
-                            hintStyle: TextStyle(color: Color(0xffDAFFFB)),
-                            border:OutlineInputBorder(
+                children: [
+                  SizedBox(height: 90),
+                  Row(
+                    children: [
+                      SizedBox(width: 20),
+                      Text("Log In",style:TextStyle(
+                          color: Color(0xffDAFFFB),fontWeight: FontWeight.bold,fontSize: 50)),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Padding(
+                        padding:  EdgeInsets.only(top:20,right:15,left:15),
+                        child: TextFormField(
+                          controller: controller.emailController.value,
+                                 decoration: InputDecoration(
+                              fillColor: Color(0x4DDAFFFB),
+                              filled:true,
+                              hintText: 'Email',
+                              hintStyle: TextStyle(color: Color(0xffDAFFFB)),
+                              border:OutlineInputBorder(
 
-                                borderRadius: BorderRadius.circular(35)
-                            )
+                                  borderRadius: BorderRadius.circular(35)
+                              )
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your email';
+                            } else if (!GetUtils.isEmail(value!)) {
+                              return 'Please enter a valid email';
+                            }
+                            return null;
+                          },
                         ),
                       ),
-                    ),
 
-                    Padding(
+                      Padding(
 
-                      padding: const EdgeInsets.only(top:20,left:15,right: 15),
-                      child:
-                      TextFormField(
-                        controller: passwordController,
-                                             decoration: InputDecoration(
-                            fillColor: Color(0x4DDAFFFB),
-                            filled: true,
-                            hintText: 'Password',
-                            hintStyle: TextStyle(color: Color(0xffDAFFFB)
-                            ),
-                            border:OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(35)
-                            )
+                        padding: const EdgeInsets.only(top:20,left:15,right: 15),
+                        child:
+                        TextFormField(
+                          controller: controller.passwordController.value,
+                                               decoration: InputDecoration(
+                              fillColor: Color(0x4DDAFFFB),
+                              filled: true,
+                              hintText: 'Password',
+                              hintStyle: TextStyle(color: Color(0xffDAFFFB)
+                              ),
+                              border:OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(35)
+                              )
+                          ),
+                          obscureText: true,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your password';
+                            } else if (value.length < 6) {
+                              return 'Password must be at least 6 characters';
+                            }
+                            return null;
+                          },
+
                         ),
-                        obscureText: true,
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
 
 
-                Padding(
-                  padding: const EdgeInsets.only(top:20,left:15,right: 15),
-                  child: Container(
-                      height:58,
-                      width:360,
-                      decoration: BoxDecoration(
-                        color: Color(0xffDAFFFB),
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: Color(0xffDAFFFB),
-                          shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(30)),
-                        ),onPressed: () {
-                              login(emailController.text.toString(), passwordController.text.toString());
-                      },
+                  Padding(
+                    padding: const EdgeInsets.only(top:20,left:15,right: 15),
+                    child: Container(
+                        height:58,
+                        width:360,
+                        decoration: BoxDecoration(
+                          color: Color(0xffDAFFFB),
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(backgroundColor: Color(0xffDAFFFB),
+                            shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(30)),
+                          ),onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                             controller.loginApi(
+                               email: controller.emailController.value,
+                               password: controller.passwordController.value,
+                             );
+                          }
+                        },
 
-                        child: Text('Log In',style:TextStyle(
-                          color:Color(0xff176B87),
-                          fontSize: 24,
-                          fontWeight:FontWeight.bold,
+                          child: Text('Log In',style:TextStyle(
+                            color:Color(0xff176B87),
+                            fontSize: 24,
+                            fontWeight:FontWeight.bold,
+                          )
+                          ),
                         )
-                        ),
+                    ),
+                  ),
+
+                  Container(
+                      child: Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 38)),
+                              InkWell(
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+                                  },
+                                  child:Text("New User? Sign Up",
+                                    style: TextStyle(
+                                        color:Color(0xffDAFFFB),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold
+
+                                    ),
+                                  )
+                              ),
+                               SizedBox(height: 200),
+
+                               Padding(
+                                 padding: const EdgeInsets.only(bottom: 10.0),
+                                 child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Padding(padding: EdgeInsets.only(top: 38)),
+                                            InkWell(
+                                                onTap: (){
+                                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> errorPage()));
+                                                },
+                                                child:Text("Need help? Contact us",
+                                                  style: TextStyle(
+                                                      color:Color(0xffDAFFFB),
+                                                      fontSize: 13,
+                                                      fontWeight: FontWeight.bold
+
+                                                  ),
+                                                )
+                                            )
+                                          ],
+                                        ),
+                               ),
+
+                              SizedBox(height: 10),
+                              Center(
+                                child: Text('Project Management App',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xff176B87)
+                                  ),),
+                              )
+                            ],
+                          )
                       )
                   ),
-                ),
-
-                Container(
-                    child: Center(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 38)),
-                            InkWell(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
-                                },
-                                child:Text("New User? Sign Up",
-                                  style: TextStyle(
-                                      color:Color(0xffDAFFFB),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold
-
-                                  ),
-                                )
-                            ),
-                             SizedBox(height: 250),
-
-                             Padding(
-                               padding: const EdgeInsets.only(bottom: 10.0),
-                               child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Padding(padding: EdgeInsets.only(top: 38)),
-                                          InkWell(
-                                              onTap: (){
-                                                Navigator.push(context, MaterialPageRoute(builder: (context)=> errorPage()));
-                                              },
-                                              child:Text("Need help? Contact us",
-                                                style: TextStyle(
-                                                    color:Color(0xffDAFFFB),
-                                                    fontSize: 13,
-                                                    fontWeight: FontWeight.bold
-
-                                                ),
-                                              )
-                                          )
-                                        ],
-                                      ),
-                             ),
-
-                            SizedBox(height: 10),
-                            Center(
-                              child: Text('Project Management App',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff176B87)
-                                ),),
-                            )
-                          ],
-                        )
-                    )
-                ),
 
 
-              ]),
+                ]),
+          ),
         )
     );
   }

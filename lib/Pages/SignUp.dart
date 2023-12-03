@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:get/get.dart';
 import 'package:project_management_/Pages/error.dart';
 import 'package:project_management_/Pages/login_page.dart';
 import 'package:project_management_/Pages/phone_auth1.dart';
-import 'package:project_management_/screens/bottom_nav_bar.dart';
+import '../modals/signup_controller.dart';
 
 
 class SignUp extends StatefulWidget {
@@ -14,35 +14,14 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+ SignupController controller = Get.put(SignupController());
 
-  void login (String email, password) async{
-    try{
-      Response response =  await post(
-        Uri.parse('https://reqres.in/api/register'),
-          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          body: {
 
-          'email' : email ,
-          'password' : password
-        }
-      );
-         if (response.statusCode ==200){
-             print('account created successfully');
-             Navigator.push(context, MaterialPageRoute(builder: (context)=> bottomNavBar()));
-         }
-         else {
-           print('failed.  Error: ${response.body}');
-           print('Response status code: ${response.statusCode}');
-
-         }
-
-          }
-        catch(e){
-      print(e.toString());
-        }
+  @override
+  void initState(){
+    super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +49,7 @@ class _SignUpState extends State<SignUp> {
                     Padding(
                       padding:  EdgeInsets.only(top:20,right:15,left:15),
                       child: TextFormField(
-                        controller: emailController,
+                        controller: controller.emailController.value,
                           decoration: InputDecoration(
                             fillColor: Color(0x4DDAFFFB),
                             filled:true,
@@ -87,7 +66,7 @@ class _SignUpState extends State<SignUp> {
 
                       padding: const EdgeInsets.only(top:20,left:15,right: 15),
                          child: TextFormField(
-                        controller: passwordController,
+                        controller: controller.passwordController.value,
                         decoration: InputDecoration(
                             fillColor: Color(0x4DDAFFFB),
                             filled: true,
@@ -119,7 +98,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           onPressed: () {
-                            login(emailController.text, passwordController.text);
+                            controller.signupApi();
 
                           },
 
